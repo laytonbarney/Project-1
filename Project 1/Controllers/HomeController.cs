@@ -27,5 +27,13 @@ namespace Project_1.Controllers
             return View();
         }
 
+       public IActionResult QuadrantView ()
+       {
+            
+            return View();
+       }
+       
+        
+
     }
 }
