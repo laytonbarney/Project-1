@@ -14,6 +14,7 @@ namespace Project_1.Controllers
         
        public IActionResult QuadrantView ()
        {
+            Console.Write("hello");
             return View();
        }
        
