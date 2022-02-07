@@ -17,7 +17,16 @@ namespace Project_1.Controllers
             Console.Write("hello");
             return View();
        }
-       
-        
+
+        public IActionResult TaskForm()
+        {
+            return View();
+        }
+
+        public IActionResult Index()
+        {
+            return View();
+        }
+
     }
 }
