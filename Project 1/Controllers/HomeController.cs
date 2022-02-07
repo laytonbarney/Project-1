@@ -6,16 +6,20 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
+
 
 namespace Project_1.Controllers
 {
     public class HomeController : Controller
     {
-        private readonly ILogger<HomeController> _logger;
+        //This is added so we can add stuff to the database
+        private TaskInfoContext DbContext { get; set; }
 
-        public HomeController(ILogger<HomeController> logger)
+        //Same as above
+        public HomeController(TaskInfoContext someName)
         {
-            _logger = logger;
+            DbContext = someName;
         }
 
         public IActionResult Index()
@@ -23,15 +27,5 @@ namespace Project_1.Controllers
             return View();
         }
 
-        public IActionResult Privacy()
-        {
-            return View();
-        }
-
-        [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
-        public IActionResult Error()
-        {
-            return View(new ErrorViewModel { RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier });
-        }
     }
 }
