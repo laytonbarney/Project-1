@@ -46,10 +46,10 @@ namespace Project_1.Controllers
 
         //This is the post from the form
         [HttpPost]
-        public IActionResult TaskForm(Tasks ta)
+        public IActionResult TaskForm()//Tasks ta)
         {
-            DbContext.Add(ta);
-            DbContext.SaveChanges();
+            //DbContext.Add(ta);
+            //DbContext.SaveChanges();
 
 
             return View("ConfirmationView", ta);
