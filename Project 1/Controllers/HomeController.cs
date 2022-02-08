@@ -6,7 +6,7 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
-using Microsoft.EntityFrameworkCore;
+
 
 
 namespace Project_1.Controllers
@@ -43,12 +43,14 @@ namespace Project_1.Controllers
             return View();
         }
 
+
         //This is the post from the form
         [HttpPost]
         public IActionResult TaskForm(Tasks ta)
         {
             DbContext.Add(ta);
             DbContext.SaveChanges();
+
 
             return View("ConfirmationView", ta);
         }

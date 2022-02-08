@@ -3,24 +3,37 @@
 @{
     ViewData["Title"] = "New Task Form Entry";
 }
-
+@model Tasks
 <h2>Enter A New Task:</h2>
 <br />
 
 <form>
-    <label>Task Name: </label>
-    <input /><br />
+    <label asp-for="TaskName">Task Name: </label>
+    <input asp-for="TaskName"/><br />
 
-    <label>Due Date:</label>
-    <input /><br />
+    <label asp-for="DueDate">Due Date:</label>
+    <input asp-for="DueDate"/><br />
 
-    <label>Quadrant: </label>
-    <select>
-        <option>Quadrant 1: Urgent, Important</option>
-        <option>Quadrant 2: Not Urgent, Important</option>
-        <option>Quadrant 4: Urgent, Not Important</option>
-        <option>Quadrant 3: Not Urgent, Not Important</option>
+    <label asp-for="Quadrant">Quadrant: </label>
+    <select asp-for="Quadrant">
+        <option value="Quadrant1">Quadrant 1: Urgent, Important</option>
+        <option value="Quadrant2">Quadrant 2: Not Urgent, Important</option>
+        <option value="Qudrant3">Quadrant 4: Urgent, Not Important</option>
+        <option value="Quadrant4">Quadrant 3: Not Urgent, Not Important</option>
     </select><br />
 
+    <label asp-for="CategoryId">Category:</label>
+    <select>
+        @foreach (Category c in ViewBag.Category)
+            {
+                <option value="@c.CategoryId">@c.CategoryName</option>
+            }
+    </select><br />
+
+    <label asp-for="Completed">Completed? </label>
+    <select asp-for="Completed">
+        <option value="True">True</option>
+        <option value="False">False</option>
+    </select>
 </form>
 
