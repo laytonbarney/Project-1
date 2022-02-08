@@ -7,6 +7,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace Project_1.Models
 {
+    //yolo
     public class Category
     {
         [Key]
