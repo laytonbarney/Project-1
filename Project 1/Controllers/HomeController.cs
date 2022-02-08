@@ -34,13 +34,26 @@ namespace Project_1.Controllers
        }
 
 
+        //This is for Liberty's views populating the data so she can do drop downs in the form.
+        
+        [HttpGet]
         public IActionResult TaskForm()
         {
+            ViewBag.Categories = DbContext.Categories.ToList();
             return View();
         }
 
-        
 
+        //This is the post from the form
+        [HttpPost]
+        public IActionResult TaskForm(Tasks ta)
+        {
+            DbContext.Add(ta);
+            DbContext.SaveChanges();
+
+
+            return View("ConfirmationView", ta);
+        }
 
     }
 }
